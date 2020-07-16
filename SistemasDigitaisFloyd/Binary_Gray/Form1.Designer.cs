@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabBinaryToGray = new System.Windows.Forms.TabPage();
+            this.tabGray2Binary = new System.Windows.Forms.TabPage();
             this.lblBinarioIn = new System.Windows.Forms.Label();
             this.txtBinary2GrayIn = new System.Windows.Forms.TextBox();
             this.btnBinary2Gray = new System.Windows.Forms.Button();
@@ -41,50 +41,58 @@
             this.btnGray2Binary = new System.Windows.Forms.Button();
             this.lblBinaryOut = new System.Windows.Forms.Label();
             this.txtGray2BinaryOut = new System.Windows.Forms.TextBox();
+            this.tabLote = new System.Windows.Forms.TabPage();
+            this.lblEntradaLote = new System.Windows.Forms.Label();
+            this.txtLoteIn = new System.Windows.Forms.TextBox();
+            this.cbChoose = new System.Windows.Forms.ComboBox();
+            this.txtLoteOut = new System.Windows.Forms.TextBox();
+            this.btnConvert = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabBinaryToGray.SuspendLayout();
+            this.tabGray2Binary.SuspendLayout();
+            this.tabLote.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabBinaryToGray);
+            this.tabControl1.Controls.Add(this.tabGray2Binary);
+            this.tabControl1.Controls.Add(this.tabLote);
             this.tabControl1.Location = new System.Drawing.Point(1, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(788, 214);
+            this.tabControl1.Size = new System.Drawing.Size(981, 214);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tabBinaryToGray
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tabPage1.Controls.Add(this.lblGrayOut);
-            this.tabPage1.Controls.Add(this.txtBinary2GrayOut);
-            this.tabPage1.Controls.Add(this.btnBinary2Gray);
-            this.tabPage1.Controls.Add(this.txtBinary2GrayIn);
-            this.tabPage1.Controls.Add(this.lblBinarioIn);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(780, 182);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Binário → Gray";
+            this.tabBinaryToGray.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tabBinaryToGray.Controls.Add(this.lblGrayOut);
+            this.tabBinaryToGray.Controls.Add(this.txtBinary2GrayOut);
+            this.tabBinaryToGray.Controls.Add(this.btnBinary2Gray);
+            this.tabBinaryToGray.Controls.Add(this.txtBinary2GrayIn);
+            this.tabBinaryToGray.Controls.Add(this.lblBinarioIn);
+            this.tabBinaryToGray.Location = new System.Drawing.Point(4, 28);
+            this.tabBinaryToGray.Name = "tabBinaryToGray";
+            this.tabBinaryToGray.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBinaryToGray.Size = new System.Drawing.Size(780, 182);
+            this.tabBinaryToGray.TabIndex = 0;
+            this.tabBinaryToGray.Text = "Binário → Gray";
             // 
-            // tabPage2
+            // tabGray2Binary
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tabPage2.Controls.Add(this.txtGray2BinaryOut);
-            this.tabPage2.Controls.Add(this.lblBinaryOut);
-            this.tabPage2.Controls.Add(this.btnGray2Binary);
-            this.tabPage2.Controls.Add(this.txtGray2BinaryIn);
-            this.tabPage2.Controls.Add(this.lblGrayIn);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(780, 182);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Gray → Binário";
+            this.tabGray2Binary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tabGray2Binary.Controls.Add(this.txtGray2BinaryOut);
+            this.tabGray2Binary.Controls.Add(this.lblBinaryOut);
+            this.tabGray2Binary.Controls.Add(this.btnGray2Binary);
+            this.tabGray2Binary.Controls.Add(this.txtGray2BinaryIn);
+            this.tabGray2Binary.Controls.Add(this.lblGrayIn);
+            this.tabGray2Binary.Location = new System.Drawing.Point(4, 28);
+            this.tabGray2Binary.Name = "tabGray2Binary";
+            this.tabGray2Binary.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGray2Binary.Size = new System.Drawing.Size(780, 182);
+            this.tabGray2Binary.TabIndex = 1;
+            this.tabGray2Binary.Text = "Gray → Binário";
             // 
             // lblBinarioIn
             // 
@@ -174,21 +182,83 @@
             this.txtGray2BinaryOut.Size = new System.Drawing.Size(750, 26);
             this.txtGray2BinaryOut.TabIndex = 4;
             // 
+            // tabLote
+            // 
+            this.tabLote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.tabLote.Controls.Add(this.btnConvert);
+            this.tabLote.Controls.Add(this.txtLoteOut);
+            this.tabLote.Controls.Add(this.cbChoose);
+            this.tabLote.Controls.Add(this.txtLoteIn);
+            this.tabLote.Controls.Add(this.lblEntradaLote);
+            this.tabLote.Location = new System.Drawing.Point(4, 28);
+            this.tabLote.Name = "tabLote";
+            this.tabLote.Size = new System.Drawing.Size(973, 182);
+            this.tabLote.TabIndex = 2;
+            this.tabLote.Text = "Conversão em lote";
+            // 
+            // lblEntradaLote
+            // 
+            this.lblEntradaLote.AutoSize = true;
+            this.lblEntradaLote.Location = new System.Drawing.Point(7, 69);
+            this.lblEntradaLote.Name = "lblEntradaLote";
+            this.lblEntradaLote.Size = new System.Drawing.Size(75, 19);
+            this.lblEntradaLote.TabIndex = 0;
+            this.lblEntradaLote.Text = "Entradas";
+            // 
+            // txtLoteIn
+            // 
+            this.txtLoteIn.Location = new System.Drawing.Point(88, 12);
+            this.txtLoteIn.Multiline = true;
+            this.txtLoteIn.Name = "txtLoteIn";
+            this.txtLoteIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLoteIn.Size = new System.Drawing.Size(292, 154);
+            this.txtLoteIn.TabIndex = 1;
+            // 
+            // cbChoose
+            // 
+            this.cbChoose.FormattingEnabled = true;
+            this.cbChoose.Location = new System.Drawing.Point(389, 66);
+            this.cbChoose.Name = "cbChoose";
+            this.cbChoose.Size = new System.Drawing.Size(259, 27);
+            this.cbChoose.TabIndex = 2;
+            // 
+            // txtLoteOut
+            // 
+            this.txtLoteOut.Location = new System.Drawing.Point(660, 12);
+            this.txtLoteOut.Multiline = true;
+            this.txtLoteOut.Name = "txtLoteOut";
+            this.txtLoteOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLoteOut.Size = new System.Drawing.Size(292, 154);
+            this.txtLoteOut.TabIndex = 3;
+            // 
+            // btnConvert
+            // 
+            this.btnConvert.Location = new System.Drawing.Point(453, 143);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(111, 23);
+            this.btnConvert.TabIndex = 4;
+            this.btnConvert.Text = "Converter";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 215);
+            this.ClientSize = new System.Drawing.Size(983, 215);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Conversor Binario-Gray e Gray_Binário";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabBinaryToGray.ResumeLayout(false);
+            this.tabBinaryToGray.PerformLayout();
+            this.tabGray2Binary.ResumeLayout(false);
+            this.tabGray2Binary.PerformLayout();
+            this.tabLote.ResumeLayout(false);
+            this.tabLote.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -196,18 +266,24 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabBinaryToGray;
         private System.Windows.Forms.Label lblGrayOut;
         private System.Windows.Forms.TextBox txtBinary2GrayOut;
         private System.Windows.Forms.Button btnBinary2Gray;
         private System.Windows.Forms.TextBox txtBinary2GrayIn;
         private System.Windows.Forms.Label lblBinarioIn;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabGray2Binary;
         private System.Windows.Forms.TextBox txtGray2BinaryOut;
         private System.Windows.Forms.Label lblBinaryOut;
         private System.Windows.Forms.Button btnGray2Binary;
         private System.Windows.Forms.TextBox txtGray2BinaryIn;
         private System.Windows.Forms.Label lblGrayIn;
+        private System.Windows.Forms.TabPage tabLote;
+        private System.Windows.Forms.Button btnConvert;
+        private System.Windows.Forms.TextBox txtLoteOut;
+        private System.Windows.Forms.ComboBox cbChoose;
+        private System.Windows.Forms.TextBox txtLoteIn;
+        private System.Windows.Forms.Label lblEntradaLote;
     }
 }
 

@@ -20,6 +20,65 @@ namespace Binary_Gray
         private void btnBinary2Gray_Click(object sender, EventArgs e)
         {
             string entrada = txtBinary2GrayIn.Text;
+            txtBinary2GrayOut.Text = entrada[0] + ConvertBinary2Gray(entrada);
+        }
+
+        private void btnGray2Binary_Click(object sender, EventArgs e)
+        {
+            string entrada = txtGray2BinaryIn.Text;
+            txtGray2BinaryOut.Text = entrada[0] + ConvertGray2Binary(entrada);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cbChoose.Items.Add("Binário → Gray");
+            cbChoose.Items.Add("Gray → Binário");
+            btnConvert.Size = new Size(180, 30);
+            //Centralizar o botão de conversão entre as caixas de entrada e saída da aba "Conversão em lote"
+            btnConvert.Location = new Point((txtLoteOut.Left - txtLoteIn.Right - btnConvert.Width) / 2 + txtLoteIn.Right, 
+                txtLoteIn.Bottom - btnConvert.Height);
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            if (cbChoose.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                List<string> lista = new List<string>();
+                string values = txtLoteIn.Text;
+                lista = values.Replace("\r\n", " ").Split(' ').ToList();
+
+                #region
+                //testando de 0 a 15
+                //for (int i = 0; i < 16; i++)
+                //{
+                //    lista.Add(Convert.ToString(i, 2).PadLeft(4,'0'));
+                //}
+                #endregion
+
+                if (cbChoose.Text.Equals("Binário → Gray"))
+                {
+                    foreach (var item in lista)
+                    {
+                        txtLoteOut.Text += item[0] + ConvertBinary2Gray(item) + "\r\n";
+                    }
+                }
+                else if (cbChoose.Text.Equals("Gray → Binário"))
+                {
+                    foreach (var item in lista)
+                    {
+                        txtLoteOut.Text += item[0] + ConvertGray2Binary(item) + "\r\n";
+                    }
+                }
+            }
+        }
+
+        private string ConvertBinary2Gray(string value)
+        {
+            string entrada = value;
             string binario2gray = "";
             for (int i = 0; i < entrada.Length - 1; i++)
             {
@@ -29,12 +88,12 @@ namespace Binary_Gray
                     binario2gray += "1";
             }
 
-            txtBinary2GrayOut.Text = entrada[0] + binario2gray;
+            return binario2gray;
         }
 
-        private void btnGray2Binary_Click(object sender, EventArgs e)
+        private string ConvertGray2Binary(string value)
         {
-            string entrada = txtGray2BinaryIn.Text;
+            string entrada = value;
             char primeiroDigito = entrada[0];
             string gray2Binary = "";
 
@@ -51,7 +110,7 @@ namespace Binary_Gray
                     gray2Binary += "1";
             }
 
-            txtGray2BinaryOut.Text = entrada[0] + gray2Binary;
+            return gray2Binary;
         }
     }
 }
