@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binary_Gray", "Binary_Gray\Binary_Gray.csproj", "{A8E9B8CA-D169-4345-BC04-3924C94A5BBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortasLogicas", "..\PortasLogicas\PortasLogicas\PortasLogicas.csproj", "{960F73D9-2517-456F-B471-D1D43FD9122A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A8E9B8CA-D169-4345-BC04-3924C94A5BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8E9B8CA-D169-4345-BC04-3924C94A5BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8E9B8CA-D169-4345-BC04-3924C94A5BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960F73D9-2517-456F-B471-D1D43FD9122A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960F73D9-2517-456F-B471-D1D43FD9122A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960F73D9-2517-456F-B471-D1D43FD9122A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960F73D9-2517-456F-B471-D1D43FD9122A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

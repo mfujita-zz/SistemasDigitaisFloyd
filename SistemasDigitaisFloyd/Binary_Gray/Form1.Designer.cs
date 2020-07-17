@@ -55,6 +55,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabBinaryToGray);
             this.tabControl1.Controls.Add(this.tabGray2Binary);
             this.tabControl1.Controls.Add(this.tabLote);
@@ -75,7 +78,7 @@
             this.tabBinaryToGray.Location = new System.Drawing.Point(4, 28);
             this.tabBinaryToGray.Name = "tabBinaryToGray";
             this.tabBinaryToGray.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBinaryToGray.Size = new System.Drawing.Size(780, 182);
+            this.tabBinaryToGray.Size = new System.Drawing.Size(973, 182);
             this.tabBinaryToGray.TabIndex = 0;
             this.tabBinaryToGray.Text = "Binário → Gray";
             // 
@@ -90,7 +93,7 @@
             this.tabGray2Binary.Location = new System.Drawing.Point(4, 28);
             this.tabGray2Binary.Name = "tabGray2Binary";
             this.tabGray2Binary.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGray2Binary.Size = new System.Drawing.Size(780, 182);
+            this.tabGray2Binary.Size = new System.Drawing.Size(973, 182);
             this.tabGray2Binary.TabIndex = 1;
             this.tabGray2Binary.Text = "Gray → Binário";
             // 
@@ -109,7 +112,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBinary2GrayIn.Location = new System.Drawing.Point(11, 47);
             this.txtBinary2GrayIn.Name = "txtBinary2GrayIn";
-            this.txtBinary2GrayIn.Size = new System.Drawing.Size(750, 26);
+            this.txtBinary2GrayIn.Size = new System.Drawing.Size(943, 26);
             this.txtBinary2GrayIn.TabIndex = 1;
             // 
             // btnBinary2Gray
@@ -128,7 +131,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBinary2GrayOut.Location = new System.Drawing.Point(11, 141);
             this.txtBinary2GrayOut.Name = "txtBinary2GrayOut";
-            this.txtBinary2GrayOut.Size = new System.Drawing.Size(750, 26);
+            this.txtBinary2GrayOut.Size = new System.Drawing.Size(943, 26);
             this.txtBinary2GrayOut.TabIndex = 3;
             // 
             // lblGrayIn
@@ -162,7 +165,7 @@
             this.btnGray2Binary.Name = "btnGray2Binary";
             this.btnGray2Binary.Size = new System.Drawing.Size(180, 30);
             this.btnGray2Binary.TabIndex = 2;
-            this.btnGray2Binary.Text = "Gray → Bináro";
+            this.btnGray2Binary.Text = "Gray → Binário";
             this.btnGray2Binary.UseVisualStyleBackColor = true;
             this.btnGray2Binary.Click += new System.EventHandler(this.btnGray2Binary_Click);
             // 
@@ -233,9 +236,9 @@
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(453, 143);
+            this.btnConvert.Location = new System.Drawing.Point(432, 136);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(111, 23);
+            this.btnConvert.Size = new System.Drawing.Size(180, 30);
             this.btnConvert.TabIndex = 4;
             this.btnConvert.Text = "Converter";
             this.btnConvert.UseVisualStyleBackColor = true;
