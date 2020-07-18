@@ -10,13 +10,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//https://docs.microsoft.com/pt-br/dotnet/standard/events/
+//Um delegate é equivalente a um ponteiro de função fortemente tipado ou um retorno de chamada.
+//Esses representantes não têm valor de tipo de retorno e usam dois parâmetros (um objeto para a origem do evento e um objeto para dados do evento).
+
 namespace PortasLogicas
 {
     public partial class Form1 : Form
     {
+        Auxiliar auxiliar;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cbOpLogica.Items.Add("And (E)");
+            cbOpLogica.Items.Add("Or  (Ou)");
         }
 
         private void btnAnalisar_Click(object sender, EventArgs e)
@@ -24,27 +36,39 @@ namespace PortasLogicas
             string entradaA = WriteBitsSequence(148);
             string entradaB = WriteBitsSequence(208);
             string saida = WriteBitsSequence(268);
+            string resultado = "";
             FileStream fs = new FileStream("grid.txt", FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
-            //MessageBox.Show(entradaA + "\r\n" + entradaB);
             sw.WriteLine(entradaA + "\r\n" + entradaB + "\r\n" + saida);
 
-            #region AND
-            //AND requer 2 inteiros na assinatura
-            int andResult = AND(Convert.ToInt32(entradaA, 2), Convert.ToInt32(entradaB, 2));
-            string resultado = FormataBits(andResult);
-            #endregion
+            if (cbOpLogica.Text.Equals("And (E)"))
+            {
+                #region AND
+                //AND requer 2 inteiros na assinatura
+                int andResult = AND(Convert.ToInt32(entradaA, 2), Convert.ToInt32(entradaB, 2));
+                resultado = FormataBits(andResult);
+                #endregion
+            }
+            else if (cbOpLogica.Text.Equals("Or  (Ou)"))
+            {
+                #region OR
+                //OR requer 2 inteiros na assinatura
+                int orResult = OR(Convert.ToInt32(entradaA, 2), Convert.ToInt32(entradaB, 2));
+                resultado = FormataBits(orResult);
+                #endregion
+            }
+            else
+                return;
 
-            #region OR
-            //OR requer 2 inteiros na assinatura
-            int orResult = OR(Convert.ToInt32(entradaA, 2), Convert.ToInt32(entradaB, 2));
-            #endregion
-
+            auxiliar = new Auxiliar(saida, resultado);
+            auxiliar.CorrecaoResposta();
             sw.WriteLine(resultado);
             sw.Close();
             fs.Close();
+
             Application.Exit();
         }
+
 
         private string WriteBitsSequence(int alturaY)
         {
