@@ -66,7 +66,23 @@ namespace PortasLogicas
             sw.Close();
             fs.Close();
 
+            #region Desenha retãngulos em torno dos números que estão no rodape para indicar bits errados.
+            Bitmap map = InicializaImagem();
+            DesenhaRetangulos(out map);
+            #endregion
+
             Application.Exit();
+        }
+
+        private Bitmap InicializaImagem()
+        {
+            Image image = Image.FromFile("grid.jpg");
+            Bitmap map = new Bitmap(image.Width, image.Height);
+            Graphics grafico = Graphics.FromImage(map);
+            grafico.Clear(Color.White);
+            grafico.DrawImage(image, 0, 0, image.Width, image.Height);
+            image.Dispose();
+            return map;
         }
 
 
@@ -74,12 +90,8 @@ namespace PortasLogicas
         {
             //alturaY: valor que inicia a análise da entrada de acordo com o eixo Y.
             //alturaY + 14: linha média entre os níveis alto e baixo.
-            
-            Image image = Image.FromFile("grid.jpg");
-            Bitmap map = new Bitmap(image.Width, image.Height);
-            Graphics grafico = Graphics.FromImage(map);
-            grafico.Clear(Color.White);
-            grafico.DrawImage(image, 0, 0, image.Width, image.Height);
+
+            Bitmap map = InicializaImagem();
 
             #region Identificar se começa com nível alto ou baixo
             string comecaCom0ou1 = "";
@@ -100,7 +112,7 @@ namespace PortasLogicas
             string bitSequence = comecaCom0ou1;
             int indice = 0;
 
-            for (int coluna = 30; coluna < image.Height; coluna += 30)
+            for (int coluna = 30; coluna < map.Height; coluna += 30)
             {
                 // Se a linha média tiver cor preta significa que houve transição de nível.
                 if (map.GetPixel(coluna, alturaY+14).R < 10 && map.GetPixel(coluna, alturaY+14).G < 10 && map.GetPixel(coluna, alturaY+14).B < 10)
@@ -118,8 +130,7 @@ namespace PortasLogicas
                 indice++;
             }
             #endregion
-            
-            
+
             return bitSequence;
         }
 
@@ -139,6 +150,29 @@ namespace PortasLogicas
             string resultado = Convert.ToString(base10, 2);
             //Preenche com 0 à esqueda
             return resultado.PadLeft(20, '0');
+        }
+
+        private void DesenhaRetangulos(out Bitmap map)
+        {
+            List<int> lista = auxiliar.CorrecaoResposta();
+            map = InicializaImagem();
+
+            Bitmap cloneImage = new Bitmap(map);
+
+            foreach (var item in lista)
+            {
+                using (Graphics graficos = Graphics.FromImage(cloneImage))
+                {
+                    using (Pen caneta = new Pen(Color.Red))
+                    {
+                        graficos.DrawRectangle(caneta, item*30, 569, 30, 30);
+                    }
+                }
+            }
+            
+            map.Dispose();
+            
+            cloneImage.Save("grid.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
     }
 }
